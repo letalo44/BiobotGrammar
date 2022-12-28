@@ -126,11 +126,11 @@ class Controller(Process):
             in_time: time that the movement should take. Optional.
         """
         #degrees = (goal_pos[i] * 180) / math.pi 
-        calculated_position_goal_pos = int(2045 + (numpy.rad2deg(goal_pos) * (4095 // 360))) #this need to round up better
-
+        calculated_position_goal_pos = int(2045 + (numpy.rad2deg(goal_pos) * (4095 / 360))) #this need to round up better
+        
+        #Hz. should be 25hz. depents on how fast main.py sends controller.move(goal_pos[])
         speed_factor = 25
 
-        #recieve present position
         # start = time.time()
 
         for s in range(0, speed_factor, 1):
